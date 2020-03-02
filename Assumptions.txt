@@ -1,0 +1,2 @@
+SPCA does not have an owner
+rescue and shelter do not need an owner, i.e. can change hands (allows set null)
