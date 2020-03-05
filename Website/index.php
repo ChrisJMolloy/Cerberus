@@ -4,6 +4,7 @@
 include('header.html');
 //connection to DB
 include('connection.php');
+/*
 //always use '' for echo's, keep things consistent
 echo'
 <div class="container">
@@ -51,7 +52,7 @@ echo'</div>
 
 </div>
 
-</div>'
+</div>'*/
 ?>
 <header class="bg-primary">
         <div class="container h-100">
