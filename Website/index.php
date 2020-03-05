@@ -53,6 +53,19 @@ echo'</div>
 
 </div>'
 ?>
-
+<header class="bg-primary">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12">
+                    <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
+                        <h1 class="display-3" style="font-weight: 500">SAVE A LIFE TODAY!</h1>
+                        <p class="lead" style="font-weight: 500">Browse our Available Pets below</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
   </body>
 </html>
