@@ -1,11 +1,11 @@
 CREATE TABLE organization(
     organization_id int NOT NULL,
     organization_name varchar(255),
-    org_street varchar(255),
-    org_city varchar(255),
-    org_province varchar(255),
-    org_postal_code varchar(255),
-    org_phone BIGINT(11),
+    organization_street varchar(255),
+    organization_city varchar(255),
+    organization_province varchar(255),
+    organization_postal_code varchar(255),
+    organization_phone BIGINT(11),
     PRIMARY KEY (organization_id)
  
    
