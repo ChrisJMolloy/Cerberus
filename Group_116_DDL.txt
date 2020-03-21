@@ -1,4 +1,4 @@
-/* GENERATE TABLES */
+/* GOLD DDL PLEASE IGNORE */
 
 
 CREATE TABLE animal (

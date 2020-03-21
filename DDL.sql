@@ -1,4 +1,4 @@
-CREATE TABLE organisation(
+CREATE TABLE organization(
     organization_id int NOT NULL,
     organization_name varchar(255),
     org_street varchar(255),
@@ -19,13 +19,13 @@ CREATE TABLE employee(
     employee_phone BIGINT(11),
     employe_addr varchar(255),
     PRIMARY KEY (employee_id),
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id) ON DELETE cascade
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id) ON DELETE cascade
 );
 
 CREATE TABLE spca(
     organization_id int NOT NULL,
     PRIMARY KEY (organization_id),
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id) ON DELETE CASCADE
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id) ON DELETE CASCADE
 
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE rescue(
     organization_id int NOT NULL,
     owner_id int,
     PRIMARY KEY (organization_id),
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id)  ON DELETE CASCADE,
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id)  ON DELETE CASCADE,
     FOREIGN KEY (owner_id) REFERENCES employee(employee_id) ON DELETE SET NULL
 
 );
@@ -43,7 +43,7 @@ CREATE TABLE shelter(
     owner_id int,
     website varchar(255),
     PRIMARY KEY (organization_id),
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id)  ON DELETE CASCADE,
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id)  ON DELETE CASCADE,
     FOREIGN KEY (owner_id) REFERENCES employee(employee_id) ON DELETE SET NULL
 
 );
@@ -54,7 +54,7 @@ CREATE TABLE donation(
     donation_date DATE NOT NULL,
     donation_amount FLOAT(2),
     PRIMARY KEY (donator_id,donation_date),
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id) ON DELETE cascade
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id) ON DELETE cascade
 
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE visit(
     amount_paid FLOAT(2),
     PRIMARY KEY (visit_id),
     FOREIGN KEY (animal_id) REFERENCES animal(animal_id) ON DELETE CASCADE,
-    FOREIGN KEY (organization_id) REFERENCES organisation(organization_id) ON DELETE CASCADE
+    FOREIGN KEY (organization_id) REFERENCES organization(organization_id) ON DELETE CASCADE
 );
 
 CREATE TABLE animal_types(
