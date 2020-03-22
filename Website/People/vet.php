@@ -54,21 +54,17 @@ echo '
 ';
 if(isset($_POST["submit"])){
     /*ID iterator begin */
-    $sql = 'SELECT MAX(vet_id) AS "length" FROM vet';
-    $result = $conn->query($sql);
+   // $sql = 'SELECT MAX(vet_id) AS "length" FROM vet';
+
     $counter = 0;
-    while ($row = $result->fetch_assoc()) {
+    foreach ($dbh ->query('SELECT MAX(vet_id) AS "length" FROM vet') as $row) {
         $counter =  $row["length"][0];
     }
     $iterator_id =  $counter + 1;
     /*ID iterator end */
-
-    $sql = "INSERT INTO vet (vet_id, name) VALUES ('".$iterator_id."','".$_POST['vet_name']."')";
-    
-    if ($conn->query($sql) === TRUE) {
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    echo $iterator_id;
+    $dbh ->query("INSERT INTO vet (vet_id, name) VALUES ('".$iterator_id."','".$_POST['vet_name']."')");
+    $dbh = null;
 
 }
 
