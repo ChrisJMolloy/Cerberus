@@ -30,13 +30,10 @@ echo '
                 </label>
                 <select class = "form-control" name = "donation_org">
                 ';
-$sql = 'SELECT organization_id,organization_name FROM organization';
-$result = $conn->query($sql);
-$counter = 0;
-while ($row = $result->fetch_assoc()) {
+
+foreach ($dbh ->query('SELECT organization_id,organization_name FROM organization') as $row) {
     echo "<option value='" . $row["organization_id"] . "'>" . $row["organization_name"] . "</option>";
 };
-
 
 echo '
                 </select>
@@ -118,22 +115,18 @@ echo '
 <!-- end of form-->  
 ';
 if (isset($_POST["submit"])) {
-    /*ID iterator begin */
-    $sql = 'SELECT MAX(donator_id) AS "length" FROM donation';
-    $result = $conn->query($sql);
-    $counter = 0;
-    while ($row = $result->fetch_assoc()) {
-        $counter =  $row["length"][0];
-    }
-    $iterator_id =  $counter + 1;
-    /*ID iterator end */
+   /*ID iterator begin */
+   $counter = 0;
+   foreach ($dbh ->query('SELECT MAX(donator_id) AS "length" FROM donation') as $row) {
+ 
+    $counter =  $row["length"];
+   }
+   $iterator_id =  $counter + 1;
+   /*ID iterator end */
     $date = date("Y/m/d");
-    $sql = "INSERT INTO donation (donator_id, organization_id, donation_date, donation_amount, donation_fname, donation_lname) VALUES ('" . $iterator_id . "','" . $_POST['donation_org'] . "','" . $date . "','" . $_POST['donation_amount'] . "','" . $_POST['donation_fname'] . "','" . $_POST['donation_lname'] . "')";
-
-    if ($conn->query($sql) === TRUE) {
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    $dbh ->query("INSERT INTO donation (donator_id, organization_id, donation_date, donation_amount, donation_fname, donation_lname) VALUES ('" . $iterator_id . "','" . $_POST['donation_org'] . "','" . $date . "','" . $_POST['donation_amount'] . "','" . $_POST['donation_fname'] . "','" . $_POST['donation_lname'] . "')");
+    $dbh = null;
+    
 }
 
 ?>

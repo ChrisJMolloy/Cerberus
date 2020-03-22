@@ -156,29 +156,21 @@ echo '
 <!-- end of form-->  
 ';
 if(isset($_POST["submit"])){
-    /*ID iterator begin */
-    $sql = 'SELECT MAX(organization_id) AS "length" FROM organization';
-    $result = $conn->query($sql);
-    $counter = 0;
-    while ($row = $result->fetch_assoc()) {
-        $counter =  $row["length"][0];
-    }
-  
-    $iterator_id =  $counter + 1;
-    /*ID iterator end */
+   /*ID iterator begin */
+   $counter = 0;
+   foreach ($dbh ->query('SELECT MAX(organization_id) AS "length" FROM organization') as $row) {
+ 
+    $counter =  $row["length"];
+   }
+   $iterator_id =  $counter + 1;
+   /*ID iterator end */
 
 
-    $sql = "INSERT INTO organization (organization_id, organization_name, organization_street, organization_city, organization_province, organization_postal_code, organization_phone) VALUES ('".$iterator_id."','".$_POST['org_name']."','".$_POST['org_street']."','".$_POST['org_city']."','".$_POST['org_province']."','".$_POST['org_postal']."', '".$_POST['org_phone']."')";
-    
-    if ($conn->query($sql) === TRUE) {
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    $sql = "INSERT INTO shelter (organization_id, website) VALUES ('".$iterator_id."','".$_POST['org_web']."')";
-    if ($conn->query($sql) === TRUE) {
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    $dbh ->query("INSERT INTO organization (organization_id, organization_name, organization_street, organization_city, organization_province, organization_postal_code, organization_phone) VALUES ('".$iterator_id."','".$_POST['org_name']."','".$_POST['org_street']."','".$_POST['org_city']."','".$_POST['org_province']."','".$_POST['org_postal']."', '".$_POST['org_phone']."')");
+    $dbh ->query("INSERT INTO shelter (organization_id, website) VALUES ('".$iterator_id."','".$_POST['org_web']."')");
+    $dbh = null;
+
+
 }
 
 ?>

@@ -54,15 +54,12 @@ echo '
 ';
 if(isset($_POST["submit"])){
     /*ID iterator begin */
-   // $sql = 'SELECT MAX(vet_id) AS "length" FROM vet';
-
     $counter = 0;
     foreach ($dbh ->query('SELECT MAX(vet_id) AS "length" FROM vet') as $row) {
-        $counter =  $row["length"][0];
+        $counter =  $row["length"];
     }
     $iterator_id =  $counter + 1;
     /*ID iterator end */
-    echo $iterator_id;
     $dbh ->query("INSERT INTO vet (vet_id, name) VALUES ('".$iterator_id."','".$_POST['vet_name']."')");
     $dbh = null;
 
