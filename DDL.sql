@@ -53,6 +53,8 @@ CREATE TABLE donation(
     organization_id int NOT NULL,
     donation_date DATE NOT NULL,
     donation_amount FLOAT(2),
+    donation_fname varchar(255),
+    donation_lname varchar(255),
     PRIMARY KEY (donator_id,donation_date),
     FOREIGN KEY (organization_id) REFERENCES organization(organization_id) ON DELETE cascade
 
