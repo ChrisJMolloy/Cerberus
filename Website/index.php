@@ -8,6 +8,14 @@ include('connection.php');
 ?>
 <style>
   html, body {margin: 0; height: 100%; overflow: hidden}
+
+    header {
+        /*https://images.freeimages.com/images/large-previews/d8b/dog-1407433.jpg*/ 
+        background-image: url('dog.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+    }
 </style>
 <header class="bg-primary">
         <div class="h-100">
@@ -16,7 +24,7 @@ include('connection.php');
             <div class="col-4"></div>
             <!--FIX THIS FOR ALL WINDOW SIZES-->
             <div class="col-4" style="padding-top :120px; margin-left:-80px;"> <div class="m-0 vh-100 d-flex flex-column justify-content-center text-light">
-                        <h1 class="display-3" style="font-weight: 500">SAVE A LIFE TODAY!</h1>
+                        
                         
                         
                         
