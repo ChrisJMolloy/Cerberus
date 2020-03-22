@@ -1,9 +1,9 @@
 <?php
 //header for all pages
 //always put   </body> </html> at the end of a file
-include('header.html');
+include('../header.html');
 //connection to DB
-include('connection.php');
+include('../connection.php');
 
 //always use '' for echo's, keep things consistent
 echo '
@@ -12,7 +12,7 @@ echo '
     <div class="row" style="padding-bottom:20px;">
         <div class="col-2"></div>
         <div class="col-8">
-            <h1>Make a Donation</h1>
+            <h1>Make A Donation</h1>
         </div>
         <div class="col-2"></div>
     </div>
@@ -119,7 +119,7 @@ echo '
 ';
 if (isset($_POST["submit"])) {
     /*ID iterator begin */
-    $sql = 'SELECT count(donator_id) AS "length" FROM donation';
+    $sql = 'SELECT MAX(donator_id) AS "length" FROM donation';
     $result = $conn->query($sql);
     $counter = 0;
     while ($row = $result->fetch_assoc()) {
