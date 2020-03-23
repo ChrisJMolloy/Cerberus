@@ -67,12 +67,7 @@ if (isset($_POST["submit"])) {
 
     $full_name = explode("*",$_POST["contributor_name"]);
     $fname = $full_name[0];
-    $lname = $full_name[1];/*
-   foreach ($dbh ->query('SELECT donation_fname, donation_lname FROM donation WHERE donator_id = '.$_POST["contributor_id"].'') as $row) {
- 
-    $fname = $row["donation_fname"];
-    $lname =  $row["donation_lname"];
-   }*/
+    $lname = $full_name[1];
  
    echo '
    
@@ -108,6 +103,7 @@ if (isset($_POST["submit"])) {
     echo "<td>".$row['organization_name'] ."</td><td>".$row["Payment"]."</td>";
     echo "</tr>";
       }
+      $dbh = null;
    echo' </tbody>
    </table>
        
