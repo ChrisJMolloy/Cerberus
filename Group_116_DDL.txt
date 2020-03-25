@@ -62,8 +62,8 @@ CREATE TABLE employee (
 /* weak entity with employee*/
 CREATE TABLE driver (
    employee_name varchar(255) NOT NULL,
-   lisence_plate varchar(255) UNIQUE,
-   lisence_number int unsigned UNIQUE,
+   license_plate varchar(255) UNIQUE,
+   license_number int unsigned UNIQUE,
    FOREIGN KEY (employee_name) REFERENCES employee(employee_name) ON DELETE CASCADE
 );
 
@@ -113,7 +113,7 @@ INSERT INTO `employee` (`employee_name`, `org_id`, `employee_address`, `phone_nu
 INSERT INTO `employee` (`employee_name`, `org_id`, `employee_address`, `phone_number`, `is_owner`, `is_volunteer`) VALUES ('scott gelb', '0', '99 Fake Street', '3333333333', '0', '0');
 
 /* make john doe a driver */
-INSERT INTO `driver` (`employee_name`, `lisence_plate`, `lisence_number`) VALUES ('john doe', 'AAAA 000', '12345');
+INSERT INTO `driver` (`employee_name`, `license_plate`, `license_number`) VALUES ('john doe', 'AAAA 000', '12345');
 
 /* create some time place info for animals */
 INSERT INTO `timeplace` (`timeplace_id`, `last_timeplace_id`, `animal_id`, `org_id`, `employee_name`, `arrival_date`, `departure_date`, `payment_cad`, `is_adoption`) VALUES ('0', NULL, '1', '2', NULL, '2020-02-02', '2020-02-03', '100', '1');
