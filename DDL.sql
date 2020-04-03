@@ -163,6 +163,7 @@ CREATE TABLE animal_types
             animal_transfer_id int NOT NULL,
             driver_id int,
             animal_id int NOT NULL,
+            transfer_date DATE NOT NULL,
             PRIMARY KEY (animal_transfer_id),
             FOREIGN KEY (animal_id) REFERENCES animal(animal_id) ON DELETE CASCADE,
             FOREIGN KEY (driver_id) REFERENCES driver (driver_id) ON DELETE SET NULL
