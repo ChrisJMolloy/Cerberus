@@ -192,3 +192,6 @@ INSERT INTO `adoption` (`adoption_id`, `family_id`, `animal_id`) VALUES ('0', '1
 INSERT INTO `donation` (`donator_id`, `organization_id`, `donation_date`, `donation_amount`, `donation_fname`, `donation_lname`) VALUES ('0', '2', '2020-04-05', '99999', 'Jenny', 'Money'), ('1', '1', '2020-03-05', '77', 'Frank', 'Average');
 INSERT INTO `animal_transfer` (`animal_transfer_id`, `driver_id`, `animal_id`, `transfer_date`) VALUES ('0', '0', '0', '2020-02-12'), ('1', '0', '6', '2020-02-19'), ('2', '1', '5', '2019-11-06');
 INSERT INTO `animal_types` (`species`, `organization_id`, `capacity`) VALUES ('rat', '0', '5'), ('cat', '0', '7'), ('dog', '1', '2'), ('rabbit', '1', '9');
+
+#2018 Donations
+INSERT INTO `donation` (`donator_id`, `organization_id`, `donation_date`, `donation_amount`, `donation_fname`, `donation_lname`) VALUES ('2', '1', '2018-10-09', '77', 'Nancy', 'Ycnan'),('2', '1', '2018-09-09', '14', 'Nancy', 'Ycnan'), ('3', '1', '2018-09-11', '33', 'Maggie', 'Eiggam'), ('4', '3', '2018-06-05', '50080', 'Curious', 'George');

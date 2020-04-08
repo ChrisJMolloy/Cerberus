@@ -74,7 +74,7 @@ else {
     $result = $dbh->query("SELECT count(animal_transfer_id) FROM animal_transfer join driver on animal_transfer.driver_id=driver.driver_id where animal_transfer.transfer_date<'20190101'")->fetch();
     echo $result[0];
 }
-
+$dbh = null;
 ?>
 </div></div></div>
 </body>

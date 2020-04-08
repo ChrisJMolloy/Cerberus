@@ -88,7 +88,7 @@ if(isset($_POST["submit"])){
     }
 
 }
-
+$dbh = null;
 echo '</tbody></table></div><div class="col-2"></div></div>';
 
 ?>

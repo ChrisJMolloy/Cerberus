@@ -63,7 +63,7 @@ echo '
     <br/>
     Total Amount Donated in 2018:
 ';
-
+if (isset($_POST["submit"])) {
 if($_POST['org_id'] != -1){
     $organizationId = $_POST['org_id'];
     $result = $dbh->query("SELECT SUM(donation_amount) FROM donation WHERE (donation.donation_date<'20190101' AND donation.donation_date>'20171231') AND donation.organization_id = $organizationId")->fetch();
@@ -72,7 +72,8 @@ if($_POST['org_id'] != -1){
 		echo $result[0];
 	} else {
 		echo "none";
-	}
+    }
+}
 }
 
 ?>
