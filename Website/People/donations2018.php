@@ -11,7 +11,7 @@ echo '
     <div class="row" style="padding-bottom:20px;">
         <div class="col-2"></div>
         <div class="col-8">
-            <h1>Animal Rescues by Organization</h1>
+            <h1>Donations in 2018 by Organization</h1>
         </div>
         <div class="col-2"></div>
     </div>
